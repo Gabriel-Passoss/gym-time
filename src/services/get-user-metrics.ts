@@ -1,19 +1,19 @@
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
 
-interface GerUserMetricsServiceRequest {
+interface GetUserMetricsServiceRequest {
   userId: string
 }
 
-interface GerUserMetricsServiceResponse {
+interface GetUserMetricsServiceResponse {
   checkInsCount: number
 }
 
-export class GerUserMetricsService {
+export class GetUserMetricsService {
   constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     userId,
-  }: GerUserMetricsServiceRequest): Promise<GerUserMetricsServiceResponse> {
+  }: GetUserMetricsServiceRequest): Promise<GetUserMetricsServiceResponse> {
     const checkInsCount = await this.checkInsRepository.countByUserId(userId)
 
     return {
