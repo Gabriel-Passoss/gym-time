@@ -16,7 +16,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   })
 
   const { title, description, phone, latitude, longitude } =
-    createGymBodySchema.parse(request.body)
+    createGymBodySchema.parse(request.query)
 
   const createGymService = makeCreateGymService()
 
