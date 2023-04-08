@@ -1,32 +1,50 @@
-# Gym Time
 
-App estilo GymPass
+# Gym-Time
 
-## RFs (Requisitos funcionais)
+API para gerenciamento de academias e check-ins, no estilo do GymPass
 
-- [x] Deve ser possível se cadastrar;
-- [x] Deve ser possível se autenticar;
-- [x] Deve ser possível obter um perfil de um usuário logado;
-- [x] Deve ser possível obter o número de check-ins realizados pelo usuário;
-- [x] Deve ser possível o usuário obter seu histórico de check-ins;
-- [x] Deve ser possível o usuário buscar academias próximas (até 10km);
-- [x] Deve ser possível o usuário buscar academias pelo nome;
-- [x] Deve ser possível o usuário realizar check-in em uma academia;
-- [x] Deve ser possível validar o check-in de um usuário;
-- [x] Deve ser possível cadastrar uma academia;
 
-## RNs (Regras de negócio)
+## Aprendizados
 
-- [x] O usuário não deve poder se cadastrar com e-mail duplicado;
-- [x] O usuário não pode fazer 2 check-ins no mesmo dia;
-- [x] O usuário não pode fazer check-in quando estiver perto (100m) da academia;
-- [x] O check-in só pode ser validado até 20 minutos após criado;
-- [x] O check-in só pode ser validado por administradores;
-- [x] A academia só pode ser cadastrada por administradores; 
+Neste projeto, o foco principal foi construir e consolidar novos aprendizados à respeito da arquitetura do back-end com design patterns (como o fabric, SOLID, repositórios) e como construir uma aplicação testável (utilizando testes unitários para cada serviço e testes e2e)
 
-## RNFs (Requisitos não-funcionais)
 
-- [x] A senha do usuário precisa estar criptografada;
-- [x] Os dados da aplicação precisam estar persistidos em um banco POSTGRESQL;
-- [x] Todas as listas de dados precisam estar paginadas com 20 itens por página;
-- [x] O usuário deve ser identificado por um JWT;
+## Variáveis de Ambiente
+
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
+
+`NODE_ENV`
+`DATABASE_URL`
+`JWT_SECRET`
+## Funcionalidades
+
+- Cadastrar usuário
+- Autenticar usuário
+- Recuperar informações do perfil do usuário
+- Obter o número de check-ins do usuário
+- Obter o histórico de check-ins do usuário
+- Cadastrar uma academia
+- Buscar academias próximas (10km)
+- Buscar academias pelo nome
+- Criar um check-in em uma academia
+- Validar check-in de um usuário
+
+
+## Stack utilizada
+
+**Back-end:** Node, Fastify, Prisma, Docker, JWT, Vitest, Zod, bcryptJS, dotenv
+
+
+## Rodando os testes
+
+Para rodar os testes unitários, rode o seguinte comando
+
+```bash
+  npm run test
+```
+
+Para rodar os testes E2E, rode o seguinte comando
+
+```bash
+  npm run test:e2e
+```
